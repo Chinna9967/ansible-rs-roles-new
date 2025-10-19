@@ -2,3 +2,13 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: nodejs
+
+- name: Setup application
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-setup
+
+- name: installing npm dependencies
+  ansible.builtin.shell: npm install
+  args:
+    chdir: /app

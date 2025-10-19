@@ -1,0 +1,15 @@
+- name: creating a service and copy
+  ansible.builtin.copy:
+    src: catalogue.service
+    dest: /etc/systemd/system/catalogue.service
+
+- name: reload the daemon
+  ansible.builtin.systemd:
+    name: catalogue
+    state: restarted
+    daemon_reload: true
+
+- name: setup mongodb repo
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongo.repo
