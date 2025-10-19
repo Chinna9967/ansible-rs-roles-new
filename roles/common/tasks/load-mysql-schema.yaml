@@ -1,0 +1,7 @@
+- name: "installing {{component}} client"
+  ansible.builtin.dnf:
+    name: "{{component}}" 
+    state: installed
+
+- name: load schema into shipping
+  ansible.builtin.shell: "mysql -h {{component}}.kpdigital.fun -uroot -pRoboShop@1 < /app/db/schema.sql && {{component}} -h mysql.kpdigital.fun -uroot -pRoboShop@1 < /app/db/app-user.sql && mysql -h {{component}}.kpdigital.fun -uroot -pRoboShop@1 < /app/db/master-data.sql" 
