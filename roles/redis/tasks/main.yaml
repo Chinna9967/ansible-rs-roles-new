@@ -4,7 +4,7 @@
   tasks:
   - name: "Install the latest version of {{component}}"
     ansible.builtin.dnf:
-      name: ""{{component}}""
+      name: "{{component}}"
       state: installed
 
   - name: "Allow remote connections to {{component}}"
@@ -15,6 +15,6 @@
 
   - name: "start and enable {{component}}"
     ansible.builtin.service:
-      name: ""{{component}}""
+      name: "{{component}}"
       state: started
       enabled: yes
