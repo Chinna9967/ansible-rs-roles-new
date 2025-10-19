@@ -8,5 +8,5 @@
     name: mongodb-org-shell 
     state: installed
 
-- name: laod schema into {{component}}
-  ansible.builtin.shell: mongo --host mongodb.kpdigital.fun </app/schema/{{component}}.js
+- name: "load schema into {{component}}"
+  ansible.builtin.shell: "mongo --host mongodb.kpdigital.fun </app/schema/{{component}}.js"
